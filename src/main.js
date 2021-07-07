@@ -22,7 +22,13 @@ Vue.use(VueLazyload, {
 
 // axios.get("gateway?cityId=440300&pageNum=2&pageSize=10&type=1&k=2130159");
 
+// 创建事件总线
+Vue.prototype.eventBus = new Vue();
+
+import store from '@/store/vuex.js';
+
 new Vue({
     router,
+    store,
     render: h => h(App)
 }).$mount('#app')

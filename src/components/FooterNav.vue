@@ -10,7 +10,7 @@
                 <p>影院</p>
             </router-link>
             <router-link to="/center" tag="li" active-class="active">
-                 <i class="iconfont icon-wode"></i>
+                <i class="iconfont icon-wode"></i>
                 <p>我的</p>
             </router-link>
         </ul>

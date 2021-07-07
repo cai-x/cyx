@@ -5,6 +5,7 @@ import CenterRouter from '@/router/routes/center'
 import CinemaRouter from '@/router/routes/cinema'
 import FilmRouter from '@/router/routes/film'
 import DetailRouter from '@/router/routes/detail'
+import CityRouter from '@/router/routes/city'
 
 Vue.use(VueRouter)
 
@@ -13,6 +14,7 @@ const routes = [
     CinemaRouter,
     FilmRouter,
     DetailRouter,
+    CityRouter,
     {
         path: '/',
         redirect: '/Film'

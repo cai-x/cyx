@@ -10,6 +10,7 @@
         </ul>      
     </div>
 </template>
+
 <style lang="scss" scope>
 .nav{
   width: 100%;

@@ -1,5 +1,6 @@
 <template>
-     <div class="detail">
+  <div>
+      <div class="detail">
         <div class="img">
             <img v-lazy="film.poster" />
         </div>
@@ -14,14 +15,24 @@
             <div>{{film.synopsis}}</div>
         </div>
     </div>
+    <Swiper :key="'actors_'+film.actors.length">
+        <div v-for="(item,index) in film.actors" :key="index" class="swiper-slide">
+          <div>
+            <img :src="item.avatarAddress" alt="">
+          </div>
+        </div>
+    </Swiper>
+  </div>
 </template>
 <script>
 import {detailData} from '@/api/api';
 import moment from 'moment';
+import Swiper from '@/components/Swiper';
 export default {
+    components:{Swiper},
     data() {
         return {
-            film:{}
+            film:{actors:[]}
         }
     },
     async mounted() {
@@ -34,6 +45,13 @@ export default {
         parsePremiereAt:function(value){
             return moment(value*100).format('YYYY-MM-DD');
         }
+    },
+    created(){
+        this.eventBus.$emit("footerNav",false);
+    },
+    // 页面跳转是触发
+    beforeDestroy(){
+        this.eventBus.$emit("footerNav",true);
     }
 }
 </script>
@@ -43,11 +61,15 @@ export default {
     .img{
         width: 100%;
         height: 290px;
-        overflow: hidden;
         img{
             width: 100%;
             height: 100%;
         }
+    }
+}
+.swiper-slide {
+    img {
+       width: 80px; 
     }
 }
 </style>
